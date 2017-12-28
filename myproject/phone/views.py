@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+import django_filters.rest_framework
 from rest_framework.response import Response
 from rest_framework.decorators import detail_route
 from rest_framework.decorators import list_route
@@ -19,15 +20,24 @@ from .serializers import Phone_infoSerializer, Phone_typeSerializer, Phone_camer
 
 class Phone_infoViewSet(viewsets.ModelViewSet):
 
-    queryset = Phone_info.objects.all()
-    serializer_class = Phone_infoSerializer
+     queryset = Phone_info.objects.all()
+     serializer_class = Phone_infoSerializer
+     filter_backends = (django_filters.rest_framework.DjangoFilterBackend,filters.OrderingFilter,)
+     filter_fields =('id',)
+     ordering =('price',)
+
+# class Phone_infoViewSet(viewsets.ModelViewSet):
+#
+#     queryset = Phone_info.objects.all()
+#     serializer_class = Phone_infoSerializer
+#     filter_fields =('name',)
     #test for details
-    @detail_route()
-    def phone_list(self, request, pk=None):
-         name = self.get_object() # retrieve an object by pk provided
-         schedule = Version_os.objects.filter(show_phone=phone).distinct()
-         schedule_json = Version_osSerializer(schedule, many=True)
-         return Response(schedule_json.data)
+    #@detail_route()
+    #def phone_list(self, request, pk=None):
+#         name = self.get_object() # retrieve an object by pk provided
+#         schedule = Version_os.objects.filter(show_phone=phone).distinct()
+#         schedule_json = Version_osSerializer(schedule, many=True)
+#         return Response(schedule_json.data)
 
 class Phone_typeViewSet(viewsets.ModelViewSet):
     queryset = Phone_type.objects.all()

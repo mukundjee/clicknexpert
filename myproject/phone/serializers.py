@@ -6,7 +6,7 @@ class Phone_infoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Phone_info
         #fields = ('name', 'manufacturer', 'screen_size', 'camera', 'cpu', 'os_version', 'phone_detail', 'launch_date', 'type')
-        fields = ('name', 'manufacturer', 'price', 'screen_size', 'camera', 'cpu', 'os_version', 'phone_detail', 'launch_date', 'type')
+        fields = ('id', 'name', 'manufacturer', 'price', 'screen_size', 'camera', 'cpu', 'os_version', 'phone_detail', 'launch_date', 'type')
 
 class Phone_typeSerializer(serializers.ModelSerializer):
     class Meta:
