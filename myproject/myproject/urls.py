@@ -23,6 +23,4 @@ urlpatterns = [
     #url(r'^', include('router.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^', include('phone.urls', namespace='phone')),
-    #url(r'^Phone$', views.PhoneListView.as_view(name ='Yu Yureka Plus')),
-    #url(r'^', views.PhoneListView.as_view()),
     ]

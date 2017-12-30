@@ -1,39 +1,15 @@
 from rest_framework import serializers
 #from models import Phone_info, Phone_type
-from models import Phone_info, Phone_type, Phone_camera, Screen_size, Phone_cpu, Manufacturer, Version_os
+from models import mobileinfos
 
-class Phone_infoSerializer(serializers.ModelSerializer):
+class mobileinfosSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Phone_info
+        model = mobileinfos
         #fields = ('name', 'manufacturer', 'screen_size', 'camera', 'cpu', 'os_version', 'phone_detail', 'launch_date', 'type')
-        fields = ('id', 'name', 'manufacturer', 'price', 'screen_size', 'camera', 'cpu', 'os_version', 'phone_detail', 'launch_date', 'type')
-
-class Phone_typeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Phone_type
-        fields = ('type', )
-
-class Phone_cameraSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Phone_camera
-        fields = ('name', 'camera')
-        #fields = ('camera', )
-class Screen_sizeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Screen_size
-        fields = ('name', 'size')
-
-class Phone_cpuSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Phone_cpu
-        fields = ('name', 'cpu')
-
-class ManufacturerSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Manufacturer
-        fields = ('name', 'manufacturer')
-
-class Version_osSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Version_os
-        fields = ('name', 'version')
+        fields = ('mobile_name','phone_os', 'touchscreen', 'processor',\
+        'sensors','screen_size', 'screen_resolution', 'display_features', \
+        'fingerprint_sensor', 'gpu', 'ram', 'internal_memory', 'battery_capacity', \
+        'weight', 'thickness', 'camera', 'camera_auto_focus', 'camera_flash', 'hd_video_recording', \
+        'other_camera_features', 'secondary_camera', 'secondary_camera_features', 'bluetooth','usb', \
+        'feature_4g', 'volte', 'feature_3g', 'feature_2g', 'wifi', 'compass', 'gps', 'dual_sim', 'nfc', 'dlna', 'more', 'price', \
+        'app_store', 'launch', 'expandable_memory_slot', 'mobile_url')
